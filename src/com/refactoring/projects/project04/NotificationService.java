@@ -28,11 +28,14 @@ public class NotificationService {
         if (TIPO_EMAIL.equals(tipo)) {
             enviarEmail(mensaje, destinatario);
         } else if (TIPO_SMS.equals(tipo)) {
-            System.out.println("Enviando SMS a " + destinatario + ": " + mensaje);
+            enviarSMS(mensaje, destinatario);
         } else if (TIPO_PUSH.equals(tipo)) {
             System.out.println("Enviando push a " + destinatario + ": " + mensaje);
         }
     }
+	private void enviarSMS(String mensaje, String destinatario) {
+		System.out.println("Enviando SMS a " + destinatario + ": " + mensaje);
+	}
 	private void enviarEmail(String mensaje, String destinatario) {
 		System.out.println("Enviando email a " + destinatario + ": " + mensaje);
 	}
