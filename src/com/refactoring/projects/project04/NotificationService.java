@@ -30,9 +30,12 @@ public class NotificationService {
         } else if (TIPO_SMS.equals(tipo)) {
             enviarSMS(mensaje, destinatario);
         } else if (TIPO_PUSH.equals(tipo)) {
-            System.out.println("Enviando push a " + destinatario + ": " + mensaje);
+            enviarPush(mensaje, destinatario);
         }
     }
+	private void enviarPush(String mensaje, String destinatario) {
+		System.out.println("Enviando push a " + destinatario + ": " + mensaje);
+	}
 	private void enviarSMS(String mensaje, String destinatario) {
 		System.out.println("Enviando SMS a " + destinatario + ": " + mensaje);
 	}
