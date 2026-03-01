@@ -2,14 +2,14 @@ package com.refactoring.projects.project04;
 /**
  * Servicio encargado de gestionar el envío de notificaciones.
  * <p>
- * <b>Refactorización - Paso 1:</b> Extraer Constantes.
+ * <b>Refactorización - Paso 2:</b> Extraer Métodos.
  * <br>
- * Se han eliminado los datos "hardcodeados" ("email", "sms", "push")
- * reemplazándolos por constantes estáticas para mejorar la legibilidad y
- * facilitar el mantenimiento del software.
+ * Se ha aplicado el patrón "Extraer métodos" para solucionar el code smell de 
+ * "Métodos muy largos". Ahora cada método privado realiza una única tarea, 
+ * mejorando la legibilidad y facilitando la reutilización.
  * </p>
  * @author Jesus y Alvaro
- * @version 1.1
+ * @version 1.2
  */
 
 public class NotificationService {
