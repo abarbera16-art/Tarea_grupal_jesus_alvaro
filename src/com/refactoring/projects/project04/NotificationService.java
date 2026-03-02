@@ -2,8 +2,10 @@ package com.refactoring.projects.project04;
 
 public class NotificationService {
 
+	private static final String EMAIL = "email";
+
 	public void enviarNotificacion(String tipo, String mensaje, String destinatario) {
-        if (tipo.equals("email")) {
+        if (tipo.equals(EMAIL)) {
             System.out.println("Enviando email a " + destinatario + ": " + mensaje);
         } else if (tipo.equals("sms")) {
             System.out.println("Enviando SMS a " + destinatario + ": " + mensaje);
@@ -11,4 +13,5 @@ public class NotificationService {
             System.out.println("Enviando push a " + destinatario + ": " + mensaje);
         }
     }
+	
 }
