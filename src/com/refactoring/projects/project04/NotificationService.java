@@ -3,64 +3,40 @@ package com.refactoring.projects.project04;
 /**
  * Servicio encargado de gestionar el envío de notificaciones.
  * <p>
- * <b>Refactorización - Paso 2:</b> Extraer Métodos.
+ * <b>Refactorización - Paso 3:</b> Reemplazar condicionales con Polimorfismo.
  * <br>
- * Se ha aplicado el patrón "Extraer métodos" para solucionar el code smell de 
- * "Métodos muy largos". Ahora cada método privado realiza una única tarea, 
- * mejorando la legibilidad y facilitando la reutilización.
+ * Se ha eliminado la lógica condicional compleja y los métodos privados largos.
+ * Ahora se utiliza el patrón Strategy/Factory a través de la interfaz {@link Notificacion},
+ * delegando la responsabilidad en clases especializadas (Email, SMS, Push).
  * </p>
  * @author Jesus y Alvaro
- * @version 1.2
+ * @version 1.3
  */
 public class NotificationService {
-
-	// Constantes extraídas en el paso 1
+    
     private static final String TIPO_EMAIL = "email";
     private static final String TIPO_SMS = "sms";
-	private static final String TIPO_PUSH = "push";
+    private static final String TIPO_PUSH = "push";
 
     /**
-     * Envía una notificación delegando la lógica en métodos especializados.
-     * @param tipo 		   El canal de envío (email, sms, push)
-     * @param mensaje 	   El contenido de la notificación
-     * @param destinatario El receptor del mensaje
+     * Envía una notificación instanciando dinámicamente la estrategia correcta.
+     * * @param tipo 		   El canal de envío (email, sms, push).
+     * @param mensaje 	   El contenido de la notificación.
+     * @param destinatario El receptor del mensaje.
      */
     public void enviarNotificacion(String tipo, String mensaje, String destinatario) {
+        Notificacion notificacion = null;
+
         if (TIPO_EMAIL.equals(tipo)) {
-            enviarEmail(mensaje, destinatario);
+            notificacion = new EmailNotificacion();
         } else if (TIPO_SMS.equals(tipo)) {
-            enviarSMS(mensaje, destinatario);
+            notificacion = new SMSNotificacion();
         } else if (TIPO_PUSH.equals(tipo)) {
-            enviarPush(mensaje, destinatario);
+            notificacion = new PushNotificacion();
         }
-    }
 
-    // --- MÉTODOS EXTRAÍDOS (Refactorización Paso 2) ---
-
-    /**
-     * Envía un correo electrónico.
-     * @param mensaje El cuerpo del correo.
-     * @param destinatario La dirección de email de destino.
-     */
-    private void enviarEmail(String mensaje, String destinatario) {
-        System.out.println("Enviando email a " + destinatario + ": " + mensaje);
-    }
-
-    /**
-     * Envía un mensaje SMS.
-     * @param mensaje El texto del SMS.
-     * @param destinatario El número de teléfono.
-     */
-    private void enviarSMS(String mensaje, String destinatario) {
-        System.out.println("Enviando SMS a " + destinatario + ": " + mensaje);
-    }
-
-    /**
-     * Envía una notificación Push.
-     * @param mensaje El contenido de la notificación.
-     * @param destinatario El ID del dispositivo o usuario.
-     */
-    private void enviarPush(String mensaje, String destinatario) {
-        System.out.println("Enviando push a " + destinatario + ": " + mensaje);
+        if (notificacion != null) {
+            notificacion.enviar(mensaje, destinatario);
+        }
     }
 }
