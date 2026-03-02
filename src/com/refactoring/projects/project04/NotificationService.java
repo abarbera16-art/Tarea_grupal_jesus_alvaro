@@ -1,4 +1,5 @@
 package com.refactoring.projects.project04;
+
 /**
  * Servicio encargado de gestionar el envío de notificaciones.
  * <p>
@@ -11,18 +12,18 @@ package com.refactoring.projects.project04;
  * @author Jesus y Alvaro
  * @version 1.2
  */
-
 public class NotificationService {
 
-	//Aqui extraemos las constantes
+	// Constantes extraídas en el paso 1
     private static final String TIPO_EMAIL = "email";
-    private static final String TIPO_SMS = "SMS";
+    private static final String TIPO_SMS = "sms";
 	private static final String TIPO_PUSH = "push";
+
     /**
-     * Envia una notificación según el tipo, mensaje y destinatario proporcionados.
-     * @param tipo 		El canal de envio (email,SMS, push)
-     * @param mensaje 	El contenido de la notificación
-     * @param destinatario	 El receptor del mensaje
+     * Envía una notificación delegando la lógica en métodos especializados.
+     * @param tipo 		   El canal de envío (email, sms, push)
+     * @param mensaje 	   El contenido de la notificación
+     * @param destinatario El receptor del mensaje
      */
     public void enviarNotificacion(String tipo, String mensaje, String destinatario) {
         if (TIPO_EMAIL.equals(tipo)) {
@@ -33,13 +34,19 @@ public class NotificationService {
             enviarPush(mensaje, destinatario);
         }
     }
-	private void enviarPush(String mensaje, String destinatario) {
-		System.out.println("Enviando push a " + destinatario + ": " + mensaje);
-	}
-	private void enviarSMS(String mensaje, String destinatario) {
-		System.out.println("Enviando SMS a " + destinatario + ": " + mensaje);
-	}
-	private void enviarEmail(String mensaje, String destinatario) {
-		System.out.println("Enviando email a " + destinatario + ": " + mensaje);
-	}
+
+
+    private void enviarEmail(String mensaje, String destinatario) {
+        System.out.println("Enviando email a " + destinatario + ": " + mensaje);
+    }
+
+ 
+    private void enviarSMS(String mensaje, String destinatario) {
+        System.out.println("Enviando SMS a " + destinatario + ": " + mensaje);
+    }
+
+
+    private void enviarPush(String mensaje, String destinatario) {
+        System.out.println("Enviando push a " + destinatario + ": " + mensaje);
+    }
 }
