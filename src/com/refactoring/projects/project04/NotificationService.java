@@ -2,6 +2,7 @@ package com.refactoring.projects.project04;
 
 public class NotificationService {
 
+	private static final String PUSH = "push";
 	private static final String EMAIL = "email";
 
 	public void enviarNotificacion(String tipo, String mensaje, String destinatario) {
@@ -9,8 +10,9 @@ public class NotificationService {
             System.out.println("Enviando email a " + destinatario + ": " + mensaje);
         } else if (tipo.equals("sms")) {
             System.out.println("Enviando SMS a " + destinatario + ": " + mensaje);
-        } else if (tipo.equals("push")) {
+        } else if (tipo.equals(PUSH)) {
             System.out.println("Enviando push a " + destinatario + ": " + mensaje);
         }
     }
+	
 }
