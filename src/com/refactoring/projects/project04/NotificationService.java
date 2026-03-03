@@ -27,5 +27,4 @@ public class NotificationService {
 	private void enviarEmail(String mensaje, String destinatario) {
 		System.out.println("Enviando email a " + destinatario + ": " + mensaje);
 	}
-
 }
