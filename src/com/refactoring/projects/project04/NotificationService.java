@@ -16,15 +16,15 @@ public class NotificationService {
         }
     }
 
-	private void Enviarpush(String mensaje, String destinatario) {
-		System.out.println("Enviando push a " + destinatario + ": " + mensaje);
-	}
+    private void Enviarpush(String mensaje, String destinatario) {
+        System.out.println("Enviando push a " + destinatario + ": " + mensaje);
+    }
 
-	private void enviarSMS(String mensaje, String destinatario) {
-		System.out.println("Enviando SMS a " + destinatario + ": " + mensaje);
-	}
+    private void enviarSMS(String mensaje, String destinatario) {
+        System.out.println("Enviando SMS a " + destinatario + ": " + mensaje);
+    }
 
-	private void enviarEmail(String mensaje, String destinatario) {
-		System.out.println("Enviando email a " + destinatario + ": " + mensaje);
-	}
+    private void enviarEmail(String mensaje, String destinatario) {
+        System.out.println("Enviando email a " + destinatario + ": " + mensaje);
+    }
 }
