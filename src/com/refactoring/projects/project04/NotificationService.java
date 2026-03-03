@@ -8,11 +8,23 @@ public class NotificationService {
 
     public void enviarNotificacion(String tipo, String mensaje, String destinatario) {
         if (tipo.equals(EMAIL)) {
-            System.out.println("Enviando email a " + destinatario + ": " + mensaje);
+            enviarEmail(mensaje, destinatario);
         } else if (tipo.equals(SMS)) {
-            System.out.println("Enviando SMS a " + destinatario + ": " + mensaje);
+            enviarSMS(mensaje, destinatario);
         } else if (tipo.equals(PUSH)) {
-            System.out.println("Enviando push a " + destinatario + ": " + mensaje);
+            Enviarpush(mensaje, destinatario);
         }
+    }
+
+    private void Enviarpush(String mensaje, String destinatario) {
+        System.out.println("Enviando push a " + destinatario + ": " + mensaje);
+    }
+
+    private void enviarSMS(String mensaje, String destinatario) {
+        System.out.println("Enviando SMS a " + destinatario + ": " + mensaje);
+    }
+
+    private void enviarEmail(String mensaje, String destinatario) {
+        System.out.println("Enviando email a " + destinatario + ": " + mensaje);
     }
 }
