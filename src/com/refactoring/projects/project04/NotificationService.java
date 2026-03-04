@@ -1,20 +1,5 @@
 package com.refactoring.projects.project04;
 
-
-public class NotificationService {
-
-
-	public void enviarNotificacion(String tipo, String mensaje, String destinatario) {
-        if (tipo.equals("rmail")) {
-            System.out.println("Enviando email a " + destinatario + ": " + mensaje);
-        } else if (tipo.equals("sms")) {
-            System.out.println("Enviando SMS a " + destinatario + ": " + mensaje);
-        } else if (tipo.equals("push")) {
-            System.out.println("Enviando push a " + destinatario + ": " + mensaje);
-        }
-    }
-
-
 /**
  * Servicio encargado de gestionar el envío de notificaciones.
  * <p>
@@ -27,7 +12,7 @@ public class NotificationService {
  * @author Jesus y Alvaro
  * @version 1.3
  */
-
+public class NotificationService {
 
     /**
      * Envía una notificación ejecutando la estrategia recibida por parámetro.
@@ -43,4 +28,3 @@ public class NotificationService {
         estrategia.enviar(mensaje, destinatario);
     }
 }
-
