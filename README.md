@@ -12,7 +12,7 @@ Mediante el uso de herramientas de refactorización del IDE, hemos aplicado patr
 ## Reparto del Trabajo
 Nos hemos organizado de la siguiente manera para completar la práctica:
 
-* *Álvaro Vázquez Barberá:* Configuración inicial del repositorio GIT, redacción del documento MEMORIA y aplicación de las refactorizaciones de Extracción de Constantes, Extracción de métodos, Reemplazo de condicionales por polimorfismo, Extracción de interfaz (Strategy), revisión de código y confección del README.md.
+* **Álvaro Vázquez Barberá:** Configuración inicial del repositorio GIT, redacción del documento MEMORIA y aplicación de las refactorizaciones de *Extracción de Constantes*, *Extracción de métodos*, *Reemplazo de condicionales por polimorfismo*, *Extracción de interfaz (Strategy)*, revisión de código y confección del README.md.
 
 
-* *Jesús Cinta Ortega:* Extracción de Constantes, Extracción de métodos, Reemplazo de condicionales por polimorfismo, Extracción de interfaz (Strategy), generación de JavaDoc y generación del HTML
+* **Jesús Cinta Ortega:** *Extracción de Constantes*, *Extracción de métodos*, *Reemplazo de condicionales por polimorfismo*, *Extracción de interfaz (Strategy)*, *generación de JavaDoc* y *generación del HTML* 
