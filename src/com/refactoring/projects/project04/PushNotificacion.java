@@ -5,7 +5,7 @@ package com.refactoring.projects.project04;
  * * @author Jesus y Alvaro
  * @version 1.0
  */
-public class PushNotificacion implements Notificacion {
+public class PushNotificacion implements NotificacionStrategy {
 
     /**
      * Envía una notificación Push a un dispositivo.

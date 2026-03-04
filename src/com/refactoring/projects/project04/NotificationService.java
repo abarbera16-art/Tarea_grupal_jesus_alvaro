@@ -5,46 +5,26 @@ package com.refactoring.projects.project04;
  * <p>
  * <b>Refactorización - Paso 3:</b> Reemplazar condicionales con Polimorfismo.
  * <br>
- * Se ha eliminado la lógica condicional compleja y los métodos privados extensos.
- * Ahora se utiliza el patrón Strategy a través de la interfaz {@link Notificacion},
- * delegando la responsabilidad del envío en clases especializadas (Email, SMS, Push).
+ * Se ha eliminado totalmente la lógica condicional compleja.
+ * Ahora se utiliza el patrón Strategy recibiendo la interfaz {@link NotificacionStrategy}
+ * por parámetro, delegando la ejecución a la clase correspondiente.
  * </p>
  * @author Jesus y Alvaro
  * @version 1.3
  */
 public class NotificationService {
 
-    // Constantes para identificar el tipo de notificación
-    private static final String TIPO_EMAIL = "email";
-    private static final String TIPO_SMS = "sms";
-    private static final String TIPO_PUSH = "push";
-
     /**
-     * Envía una notificación instanciando dinámicamente la estrategia correcta.
+     * Envía una notificación ejecutando la estrategia recibida por parámetro.
      * <p>
-     * Selecciona la implementación adecuada de {@link Notificacion} basándose en el
-     * parámetro 'tipo' y ejecuta el envío sin conocer los detalles de la implementación.
+     * Se elimina la responsabilidad de decidir qué tipo de notificación instanciar,
+     * cumpliendo con el principio Abierto/Cerrado (Open/Closed Principle).
      * </p>
-     * @param tipo 		   El canal de envío (email, sms, push).
-     * @param mensaje 	   El contenido de la notificación.
+     * @param estrategia   La implementación específica a ejecutar (Email, SMS, Push).
+     * @param mensaje      El contenido de la notificación.
      * @param destinatario El receptor del mensaje.
      */
-    public void enviarNotificacion(String tipo, String mensaje, String destinatario) {
-        // Variable polimórfica (Interfaz)
-        Notificacion notificacion = null;
-
-        // Determinamos qué estrategia usar
-        if (TIPO_EMAIL.equals(tipo)) {
-            notificacion = new EmailNotificacion();
-        } else if (TIPO_SMS.equals(tipo)) {
-            notificacion = new SMSNotificacion();
-        } else if (TIPO_PUSH.equals(tipo)) {
-            notificacion = new PushNotificacion();
-        }
-
-        // Ejecutamos el envío delegando en la clase correspondiente
-        if (notificacion != null) {
-            notificacion.enviar(mensaje, destinatario);
-        }
+    public void enviarNotificacion(NotificacionStrategy estrategia, String mensaje, String destinatario) { 
+        estrategia.enviar(mensaje, destinatario);
     }
 }

@@ -5,7 +5,7 @@ package com.refactoring.projects.project04;
  * * @author Jesus y Alvaro
  * @version 1.0
  */
-public class SMSNotificacion implements Notificacion {
+public class SmsNotificacion implements NotificacionStrategy {
 
     /**
      * Envía un mensaje de texto corto (SMS).
@@ -14,6 +14,6 @@ public class SMSNotificacion implements Notificacion {
      */
     @Override
     public void enviar(String mensaje, String destinatario) {
-        System.out.println("Enviando SMS a " + destinatario + ": " + mensaje);
-    }
+        System.out.println("Enviando Sms a " + destinatario + ": " + mensaje);  
+     }
 }
